@@ -1,0 +1,84 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackingApp1.Pages.SetupNetworkConnection"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <Label Text="Set up network connection"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                  />
+
+            <!-- Server Setting -->
+            <Label Text="Server setting"
+                   FontAttributes="Bold" />
+            <Entry Text="Services.atraxsoftware.com"
+                   BackgroundColor="#f2f2f2"
+                   TextColor="Black"
+                   HeightRequest="45"
+                  />
+
+            <!-- Service Name -->
+            <Label Text="Service name"
+                   FontAttributes="Bold" />
+            <Entry Text="demoservice"
+                   BackgroundColor="#f2f2f2"
+                   TextColor="Black"
+                   HeightRequest="45"
+                    />
+
+          
+            <Label Text="Username"
+                   FontAttributes="Bold" />
+            <Entry Text="driver1"
+                   BackgroundColor="#f2f2f2"
+                   TextColor="Black"
+                   HeightRequest="45"
+                    />
+
+            
+            <Label Text="Password"
+                   FontAttributes="Bold" />
+            <Grid>
+                <Entry x:Name="PasswordEntry" IsPassword="True"
+                   Text="abc@12"
+                   BackgroundColor="#f2f2f2"
+                   TextColor="Black"
+                   HeightRequest="45"
+                   
+                    />
+                <ImageButton x:Name="EyeButton"
+                 Source="eye.png"
+                 BackgroundColor="Transparent"
+                 WidthRequest="18"
+                 HeightRequest="18"
+                             Scale="0.7"
+                             Aspect="AspectFit"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center"
+                 Margin="0,0,10,0"
+                 Clicked="OnEyeButtonClicked" />
+            </Grid>
+
+
+
+            <Button Text="Connect"
+        BackgroundColor="Black"
+        TextColor="White"
+        HeightRequest="35" 
+                    WidthRequest="180"
+                CornerRadius="18"
+                FontSize="13"
+                    HorizontalOptions="Center"
+                Margin="0,20,0,0"
+                    Clicked="OnConnectClicked"/>
+               
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

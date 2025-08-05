@@ -1,0 +1,14 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackingApp1.Pages.DriverMap"
+             Title="Working Order"
+             BackgroundColor="White">
+
+    <Grid RowDefinitions="*,Auto">
+        <WebView x:Name="MapWebView"
+                 Grid.Row="0"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand" />
+    </Grid>
+
+</ContentPage>

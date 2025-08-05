@@ -1,0 +1,355 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackingApp1.Pages.OrderSummary"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+    <Grid>
+        <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+        
+        <HorizontalStackLayout VerticalOptions="Start" Spacing="10">
+            <ImageButton Source="back.png"
+                         WidthRequest="30"
+                         HeightRequest="30"
+                         BackgroundColor="Transparent"
+                         Clicked="OnBackClicked"/>
+            <Label Text="Working orders"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <Label Text="Please select an order to update"
+               FontSize="14"
+               TextColor="Gray"
+               Margin="0,5,0,15" />
+
+        <!-- Order List -->
+        <VerticalStackLayout Spacing="10">
+
+            <!-- Order Item 1 -->
+            <Frame CornerRadius="6"
+                   BackgroundColor="#f2f2f2"
+                   Padding="0"
+                   HasShadow="False"
+                   HeightRequest="80">
+
+                <Grid ColumnDefinitions="*,Auto"
+                      Padding="15">
+
+                    <VerticalStackLayout>
+                        <Label Text="Company1"
+                               FontSize="16"
+                               TextColor="Black" />
+                        <Label Text="A000040"
+                               FontSize="14"
+                               TextColor="Gray"/>
+                    </VerticalStackLayout>
+
+                    <Label Text="ERT"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Grid.Column="1" />
+                </Grid>
+            </Frame>
+
+            <!-- Order Item 2 -->
+            <Frame CornerRadius="6"
+                   BackgroundColor="#f2f2f2"
+                   Padding="0"
+                   HasShadow="False"
+                   HeightRequest="80">
+
+                <Grid ColumnDefinitions="*,Auto"
+                      Padding="15">
+
+                    <VerticalStackLayout>
+                        <Label Text="Company1"
+                               FontSize="16"
+                               TextColor="Black" />
+                        <Label Text="A000041"
+                               FontSize="14"
+                               TextColor="Gray"/>
+                    </VerticalStackLayout>
+
+                    <Label Text="ERT"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Grid.Column="1" />
+                </Grid>
+            </Frame>
+
+            <!-- Order Item 3 -->
+            <Frame CornerRadius="6"
+                   BackgroundColor="#f2f2f2"
+                   Padding="0"
+                   HasShadow="False"
+                   HeightRequest="80">
+
+                <Grid ColumnDefinitions="*,Auto"
+                      Padding="15">
+
+                    <VerticalStackLayout>
+                        <Label Text="Company1"
+                               FontSize="16"
+                               TextColor="Black" />
+                        <Label Text="A000042"
+                               FontSize="14"
+                               TextColor="Gray"/>
+                    </VerticalStackLayout>
+
+                    <Label Text="ONS"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Grid.Column="1" />
+                </Grid>
+            </Frame>
+
+                    <!-- Order Item 4 -->
+                    <Frame  CornerRadius="6"
+                   BackgroundColor="#f2f2f2"
+                   Padding="0"
+                   HasShadow="False"
+                   HeightRequest="80">
+
+                <Grid ColumnDefinitions="*,Auto"
+                      Padding="15">
+
+                    <VerticalStackLayout>
+                        <Label Text="Company1"
+                               FontSize="16"
+                               TextColor="Black" />
+                        <Label Text="A000043"
+                               FontSize="14"
+                               TextColor="Gray"/>
+                    </VerticalStackLayout>
+
+                    <Label Text="ERT"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Grid.Column="1" />
+                </Grid>
+            </Frame>
+
+                    <!-- Order Item 5 -->
+                    <Frame   x:Name="LastOrderFrame" CornerRadius="6"
+                       BackgroundColor="#f2f2f2"
+                       Padding="0"
+                       HasShadow="False"
+                       HeightRequest="80"
+                       
+                       >   
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLastOrderTapped" />
+                        </Frame.GestureRecognizers>
+
+                        <Grid x:Name="LastOrderGrid" ColumnDefinitions="*,Auto"
+                                Padding="15">
+
+                            <VerticalStackLayout>
+                                <Label x:Name="LastOrderCompanyLabel" Text="Company1"
+                               FontSize="16"
+                               TextColor="Black" />
+                                <Label x:Name="LastOrderCodeLabel" Text="A000044"
+                               FontSize="14"
+                               TextColor="Gray"/>
+                            </VerticalStackLayout>
+
+                            <Label x:Name="LastOrderStatusLabel" Text=""
+               FontSize="16"
+               FontAttributes="Bold"
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+               TextColor="Black"
+               Grid.Column="1" />
+                        </Grid>
+                    </Frame>
+                </VerticalStackLayout>
+
+
+        
+        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+      ColumnSpacing="10"
+      RowSpacing="10"
+      Margin="0,20,0,10"
+              HorizontalOptions="Center">
+
+
+            <Button  x:Name="MapButton" Text="Map"
+            BackgroundColor="Gray"
+            TextColor="White"
+            WidthRequest="140"
+            HeightRequest="40"
+            CornerRadius="20"
+            Margin="0"
+            Grid.Row="0"
+            Grid.Column="0"
+            Clicked="OnMapClicked" />
+
+                    <Button x:Name="NextButton"
+                    Text="Next"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    WidthRequest="140"
+                    HeightRequest="40"
+                    CornerRadius="20"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Clicked="OnNextClicked"
+                            IsVisible="True"/>
+
+                    <Button x:Name="StartButton" 
+                    Text="Start"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    WidthRequest="140"
+                    HeightRequest="40"
+                    CornerRadius="20"
+                    Margin="0"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Clicked="OnStartClicked"
+                            IsVisible="False"/>
+
+                    
+            <Button Text="Refresh"
+            BackgroundColor="Gray"
+            TextColor="White"
+                    WidthRequest="140"
+            HeightRequest="40"
+            CornerRadius="20"
+            Margin="0"
+            Grid.Row="1"
+            Grid.Column="0" />
+
+            <Button Text="Tools"
+            BackgroundColor="Gray"
+            TextColor="White"
+                    WidthRequest="140"
+            HeightRequest="40"
+            CornerRadius="20"
+            Margin="0"
+            Grid.Row="1"
+            Grid.Column="1" />
+        </Grid>
+
+
+    </VerticalStackLayout>
+        
+    </ScrollView>
+
+        <Grid x:Name="PopupOverlay"
+      BackgroundColor="#80000000"
+      IsVisible="False"
+      VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand"
+      ZIndex="999">
+
+            <Frame BackgroundColor="White"
+           CornerRadius="20"
+           Padding="20"
+           WidthRequest="340"
+           HeightRequest="400"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           HasShadow="True">
+
+                <VerticalStackLayout Spacing="20">
+
+                    <!-- Title -->
+                    <Label Text="Allow Atrax to access this device’s location?"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   TextColor="Black"/>
+
+                    <!-- Icons and Text -->
+                    <Grid ColumnDefinitions="*,*"
+                  HorizontalOptions="Center"
+                  ColumnSpacing="20">
+
+                        <!-- Precise -->
+                        <VerticalStackLayout HorizontalOptions="Center" Grid.Column="0">
+                            <Image Source="precise.png" WidthRequest="60" HeightRequest="60" />
+                            <Label Text="Precise"
+                           HorizontalTextAlignment="Center"
+                           FontSize="14" />
+                        </VerticalStackLayout>
+
+                        <!-- Approximate -->
+                        <VerticalStackLayout HorizontalOptions="Center" Grid.Column="1">
+                            <Image Source="approximate.png" WidthRequest="60" HeightRequest="60" />
+                            <Label Text="Approximate"
+                           HorizontalTextAlignment="Center"
+                           FontSize="14" />
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+
+
+
+                    <!-- Buttons -->
+                    <VerticalStackLayout Spacing="10">
+
+                        <Button Text="While using the app"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        HeightRequest="45"
+                        CornerRadius="22"
+                        Clicked="ClosePopup"/>
+
+                        <Button Text="Only this time"
+                        BackgroundColor="#E0E0E0"
+                        TextColor="Black"
+                        HeightRequest="45"
+                        CornerRadius="22"
+                        Clicked="ClosePopup"/>
+
+                        <Button Text="Don't allow"
+                        BackgroundColor="#E0E0E0"
+                        TextColor="Black"
+                        HeightRequest="45"
+                        CornerRadius="22"
+                        Clicked="ClosePopup"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+        <Grid x:Name="AlertPopup" BackgroundColor="#80000000" IsVisible="False" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ZIndex="999">
+            <Frame BackgroundColor="White" CornerRadius="20" Padding="20" WidthRequest="340" HeightRequest="250" HorizontalOptions="Center" VerticalOptions="Center" HasShadow="True">
+                <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <Label Text="Alert" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="You are about to start working on the selected order. Please confirm!" FontSize="14" HorizontalTextAlignment="Center" WidthRequest="280"/>
+                    <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                        <Button Text="Cancel" BackgroundColor="Gray" TextColor="White" WidthRequest="120" HeightRequest="45" CornerRadius="22" Clicked="OnAlertCancelClicked"/>
+                        <Button Text="Ok" BackgroundColor="Black" TextColor="White" WidthRequest="120" HeightRequest="45" CornerRadius="22" Clicked="OnAlertOkClicked"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+        <WebView x:Name="MapWebView"
+         IsVisible="False"
+         HeightRequest="400"
+         VerticalOptions="FillAndExpand"
+         HorizontalOptions="FillAndExpand" />
+
+
+        
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,56 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackingApp1.Pages.SelectVehicle"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout Padding="30" Spacing="25">
+
+        <Label Text="Select vehicle"
+               FontSize="22"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center" />
+
+        <Label Text="Select a vehicle to show on the map"
+               FontSize="14"
+               TextColor="Gray"
+               HorizontalTextAlignment="Center"
+               Margin="0,20,0,0"/>
+        
+
+            <Picker Title="Select Truck"
+        BackgroundColor="#f2f2f2"
+        TextColor="Black"
+       
+        FontSize="16"
+        HorizontalOptions="FillAndExpand"
+                
+               >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Truck 1</x:String>
+                        <x:String>Truck 2</x:String>
+                        <x:String>Truck 3</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Margin="0,30,0,0">
+            <Button Text="Send"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    WidthRequest="140"
+                    HeightRequest="45"
+                    CornerRadius="22"
+                    Clicked="OnSendClicked"/>
+
+            <Button Text="Cancel"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    WidthRequest="140"
+                    HeightRequest="45"
+                    CornerRadius="22" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

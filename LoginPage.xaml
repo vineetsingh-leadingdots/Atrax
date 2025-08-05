@@ -1,0 +1,95 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackingApp1.LoginPage"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,0,20,20" Margin="0" Spacing="20">
+
+            <Label Text="Atrax"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   />
+
+            <Label Text="Set up network connection"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+
+
+            <Label Text="Server setting" TextColor="Gray"/>
+            <Entry Text="Services.atraxsoftware.com"
+                   BackgroundColor="#F3F3F3"
+                   TextColor="Black" />
+
+
+            <Label Text="Password" TextColor="Gray"/>
+            
+            <Entry 
+                   Text="demoservice"
+            
+            IsPassword="False"
+            BackgroundColor="#F3F3F3"
+            TextColor="Black"
+             />
+
+                
+
+
+            <Label Text="User account"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+
+            <Label Text="Username" TextColor="Gray"/>
+            <Entry Text="admin"
+                   BackgroundColor="#F3F3F3"
+                   TextColor="Black" />
+
+            <Label Text="Password" TextColor="Gray"/>
+            <Grid  >
+                
+                <Entry x:Name="PasswordEntry"
+                      
+                   Text="12344"
+                   Placeholder="Enter password"
+                   BackgroundColor="#F3F3F3"
+                   IsPassword="True"
+                   TextColor="Black"
+                   HeightRequest="50"
+                   
+                       
+                      />
+
+                <ImageButton x:Name="toggleButton"
+              
+                Source="eye_off.png"
+                
+                BackgroundColor="#F3F3F3"
+                
+                Clicked="OnTogglePasswordVisibility"
+            
+                WidthRequest="30"
+                HeightRequest="30"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        Margin="0,0,10,0"/>     
+            </Grid>
+
+
+            <Button Text="Next"
+                    Clicked="OnLoginClicked"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"
+                    FontSize="18" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

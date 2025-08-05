@@ -1,0 +1,230 @@
+ 
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackingApp1.Pages.LiveTracking"
+            xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             BackgroundColor="White"
+                 Shell.NavBarIsVisible="False">
+    <Grid x:Name="MainGrid">
+        <ScrollView >
+
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+
+
+
+                <Label Text="Select Vehicle"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                   />
+
+
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+
+                    <Button Text="Dash camera video"
+                        BackgroundColor="gray"
+                        TextColor="White"
+                        Clicked="OnDashCameraClicked"/>
+                    <Button Text="Tracking settings"
+                        BackgroundColor="gray"
+                        TextColor="White"
+                        Clicked="OnTrackingSettingsClicked"
+                        />
+                </HorizontalStackLayout>
+
+
+                <Button Text="Refresh"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    WidthRequest="200"
+                    HeightRequest="40"
+                    CornerRadius="10"
+                    HorizontalOptions="Center"/>
+
+
+                <Picker x:Name="TruckPicker"  Title="Select vehicle"
+                    SelectedIndexChanged="OnTruckSelected">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Truck 1</x:String>
+                            <x:String>Truck 2</x:String>
+                            <x:String>Truck 3</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <WebView x:Name="MapWebView"
+                     HeightRequest="400"
+                     WidthRequest="1000"/>
+            </VerticalStackLayout>
+        </ScrollView>
+        
+        
+        <Grid x:Name="PopupOverlay"
+              BackgroundColor="#80000000"
+              IsVisible="True">
+            <Frame BackgroundColor="White"
+                   Padding="20"
+                   CornerRadius="10"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   WidthRequest="250"
+                   HeightRequest="250">
+
+                <VerticalStackLayout Spacing="10">
+
+
+
+                    <!-- Title -->
+                    <Label Text="Demo service"
+               FontSize="18"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+                    <Label Text="This is just demo.If you believe it may suit your business needs, please call 778 239-9252 and we will help you installthe cloud-based Windows application."
+                    FontSize="13"
+               HorizontalTextAlignment="Center"
+               TextColor="Black"
+               Margin="10,0,10,0"
+               LineBreakMode="WordWrap" />
+
+                    <Button Text="OK"
+                        Clicked="OnPopupOkClicked"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        WidthRequest="100"
+                        CornerRadius="10"/>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+        <Grid x:Name="CameraErrorPopup"
+              BackgroundColor="#80000000"
+              IsVisible="False"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   WidthRequest="280"
+                   HeightRequest="220"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Padding="20">
+                <VerticalStackLayout Spacing="20" VerticalOptions="CenterAndExpand">
+
+                    <Label Text="Camera not assigned error"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label Text="Camera is not assigned to selected truck!"
+                           FontSize="14"
+                           HorizontalTextAlignment="Center" />
+
+                    <Button Text="Ok"
+                            BackgroundColor="Black"
+                            TextColor="White"
+                            HorizontalOptions="Center"
+                            Clicked="OnCameraPopupOkClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </Grid>
+
+        <Grid x:Name="VideoSelectionScreen"
+      BackgroundColor="White"
+      IsVisible="False"
+      Padding="20"
+      VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand">
+
+            <VerticalStackLayout Spacing="20"
+          VerticalOptions="Start"
+          HorizontalOptions="Center">
+
+                <Label Text="Select video"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Start" />
+
+
+                <Frame BackgroundColor="Black"
+               HeightRequest="200"
+               WidthRequest="300"
+               CornerRadius="12"
+               HasShadow="False"
+               HorizontalOptions="Center">
+                    <Label Text="Loading..."
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+                </Frame>
+
+                <HorizontalStackLayout Spacing="15"
+                               HorizontalOptions="Center"
+                               Padding="0,10,0,0">
+
+                    <Button Text="Video1"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    WidthRequest="90"
+                    HeightRequest="38"
+                    CornerRadius="20" />
+
+                    <Button Text="Video2"
+                    BackgroundColor="#A0A0A0"
+                    TextColor="White"
+                    WidthRequest="90"
+                    HeightRequest="38"
+                    CornerRadius="20" />
+
+                    <Button Text="Cancel"
+                    BackgroundColor="#A0A0A0"
+                    TextColor="White"
+                    WidthRequest="90"
+                    HeightRequest="38"
+                    CornerRadius="20"
+                    Clicked="OnCancelVideoSelectionClicked" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Grid>
+        <Grid x:Name="CameraWarningPopup"
+          BackgroundColor="#40000000"
+          IsVisible="False"
+          VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand">
+
+            <Frame BackgroundColor="White"
+               CornerRadius="20"
+               WidthRequest="280"
+               HeightRequest="250"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Padding="20">
+                <VerticalStackLayout Spacing="20"
+                                 VerticalOptions="CenterAndExpand">
+
+                    <Label Text="Camera Warning"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Cannot watch the video from the camera. Please check if the camera is online. If the issue persists, please contact Atrax for help!"
+                       FontSize="14"
+                       TextColor="Gray"
+                       HorizontalTextAlignment="Center" />
+                    <Button Text="Ok"
+                        Clicked="OnCameraWarningOkClicked"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+        
+
+    </Grid>
+    </Grid>
+
+</ContentPage>

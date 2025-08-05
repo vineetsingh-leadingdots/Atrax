@@ -1,0 +1,79 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackingApp1.Pages.CustomTrackingSettings"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+           
+            <Label Text="Pick the truck to be tracked"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,0" />
+
+          
+            <Label Text="Select truck to track"
+                   FontAttributes="Bold"
+                />
+            <Picker x:Name="TruckPicker" BackgroundColor="#f5f5f5">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>truck 1</x:String>
+                        <x:String>truck 2</x:String>
+                        <x:String>truck 3</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            
+            <Label Text="Hours allow to track"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="HoursEntry" Placeholder="Enter hours"
+                   Keyboard="Numeric"
+                   BackgroundColor="#f5f5f5"
+                   HeightRequest="40"
+                   />
+
+          
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
+                <Label Text="Allow tracking all the time"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold" />
+                <Switch />
+            </HorizontalStackLayout>
+
+           
+            <Label Text="Send to phone#"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="PhoneEntry" Placeholder="Enter phone number"
+                   Keyboard="Telephone"
+                   BackgroundColor="#f5f5f5"
+                   HeightRequest="40"/>
+
+            
+            <HorizontalStackLayout Spacing="20"
+                                   HorizontalOptions="Center"
+                                   Margin="0,30,0,0">
+                <Button Text="Cancel"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        CornerRadius="20"
+                        WidthRequest="120"
+                        HeightRequest="45"/>
+
+                <Button Text="Send"
+                        Clicked="OnSendClicked"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        CornerRadius="20"
+                        WidthRequest="120"
+                        HeightRequest="45"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

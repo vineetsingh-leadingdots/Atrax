@@ -1,0 +1,3 @@
+C:\Users\hp\Desktop\Screens\TrackingApp1\bin\Release\net9.0-android\publish\com.companyname.trackingapp1-Signed.apk
+C:\Users\hp\Desktop\Screens\TrackingApp1\bin\Release\net9.0-android\publish\com.companyname.trackingapp1.apk
+C:\Users\hp\Desktop\Screens\TrackingApp1\bin\Release\net9.0-android\publish\_Microsoft.Android.Resource.Designer.dll
